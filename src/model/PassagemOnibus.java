@@ -1,3 +1,7 @@
+/**
+ * Classe que representa uma Passagem de Onibus, que herda da classe Passagem.
+ * A Passagem de Onibus possui informacoes adicionais, como o tipo de poltrona.
+ */
 package model;
 
 import model.enums.TipoPoltronaEnum;
@@ -5,11 +9,24 @@ import model.enums.TipoPoltronaEnum;
 public class PassagemOnibus extends Passagem {
     private TipoPoltronaEnum tipoPoltrona;
 
-    public PassagemOnibus(TipoPoltronaEnum tipoPoltrona){
+    /**
+     * Construtor da classe PassagemOnibus.
+     * 
+     * @param nomePassageiro O nome do passageiro da passagem de onibus.
+     * @param telefone O telefone de contato do passageiro da passagem de onibus.
+     * @param itinerario O itinerario associado a passagem de onibus.
+     * @param tipoPoltrona O tipo de poltrona da passagem de onibus.
+     */
+    public PassagemOnibus(String nomePassageiro, String telefone, Itinerario itinerario, String assento,
+            TipoPoltronaEnum tipoPoltrona) {
+        super(nomePassageiro, telefone, itinerario);
         this.tipoPoltrona = tipoPoltrona;
     }
 
-    public PassagemOnibus(String string, String string2, Itinerario itinerario, String string3, String string4) {
+    /**
+     * Construtor padrao da classe PassagemOnibus.
+     */
+    public PassagemOnibus() {
     }
 
     public TipoPoltronaEnum getTipoPoltrona() {

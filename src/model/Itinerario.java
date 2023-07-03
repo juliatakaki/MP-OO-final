@@ -1,8 +1,11 @@
+/**
+ * Esta classe representa um itinerario contendo informacoes sobre a origem, destino e data de viagem.
+ * Alem disso, possui uma lista de objetos do tipo Passagem associados a esse itinerario.
+ */
 package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Itinerario {
     private String origem;
@@ -10,6 +13,13 @@ public class Itinerario {
     private String data;
     private List<Passagem> passagens = new ArrayList<>();
 
+    /**
+     * Construtor da classe Itinerario.
+     * 
+     * @param origem A cidade de origem do itinerario.
+     * @param destino A cidade de destino do itinerario.
+     * @param data A data da viagem do itinerario.
+     */
     public Itinerario(String origem, String destino, String data) {
         this.origem = origem;
         this.destino = destino;
@@ -17,53 +27,44 @@ public class Itinerario {
     }
 
     public String getOrigem() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Origem da passagem: ");
-            origem = scanner.next();
-            scanner.nextLine(); // Limpeza de buffer
-        }
         return origem;
     }
 
+    public void setOrigem(String origem) {
+        this.origem = origem;
+    }
+
     public String getDestino() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Destino da passagem: ");
-            destino = scanner.next();
-            scanner.nextLine(); // Limpeza de buffer
-        }
         return destino;
     }
 
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
     public String getData() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Data da passagem (dd/mm/aaaa): ");
-            data = scanner.next();
-            scanner.nextLine(); // Limpeza de buffer
-        }
         return data;
     }
 
+    public void setData(String data) {
+        this.data = data;
+    }
+
     public List<Passagem> getPassagens() {
-        System.out.println("Listagem dos dados das passagens:");
-        for (Passagem passagem : passagens) {
-            System.out.println("Nome: " + passagem.getNomePassageiro());
-            System.out.println("Telefone: " + passagem.getTelefone());
-            System.out.println("Itinerario: " + passagem.getItinerario());
-            System.out.println("Assento: " + passagem.getAssento());
-        }
         return passagens;
     }
 
-    public void setOrigem(String novaOrigem) {
-        this.origem = novaOrigem;
+    public void setPassagens(List<Passagem> passagens) {
+        this.passagens = passagens;
     }
 
-    public void setDestino() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Destino a ser alterado: ");
-            String novoDestino = scanner.next();
-            scanner.nextLine(); // Limpeza de buffer
-            this.destino = novoDestino;
-        }
+    /**
+     * Retorna uma representacao em formato de string do objeto Itinerario.
+     * 
+     * @return A representacao em formato de string do objeto Itinerario.
+     */
+    @Override
+    public String toString() {
+        return "Itinerario: [destino=" + destino + ", origem=" + origem + ", data=" + data + "]";
     }
 }
